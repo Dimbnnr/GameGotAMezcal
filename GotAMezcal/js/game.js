@@ -3,5 +3,6 @@ function Game (canvas){
     this.caballito1 = new Caballito(canvas),
     this.bottles = [],
     this.gotas =[],
-    this.frames = 0
+    this.frames = 0,
+    this.emptyBottle = new EmptyBottle(canvas)
 };   
