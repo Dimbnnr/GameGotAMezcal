@@ -11,6 +11,12 @@ var sound1 = new Audio();
 sound1.src = "./Music/waterDrop.mp3"
 var soundWin = new Audio();
 soundWin.src = "./Music/wooHOO.mp3"
+var soundBounce = new Audio();
+soundBounce.src = "./Music/WO.mp3"
+
+function playSoundBounce(){
+  soundBounce.play();
+}
 
 function playSound1() {
   sound1.play();
@@ -115,8 +121,8 @@ function updateGame2() {
   myGame.emptyBottle.drawLife();
   myGame.emptyBottle2.draw2();
   myGame.emptyBottle2.drawLife2();
-  canvas.font = "30px Arial";
-  canvas.fillText(Math.floor(frames / 8), 100, 150);
+  //canvas.font = "30px Arial";
+  //canvas.fillText(Math.floor(frames / 8), 100, 150);
   var tiempoBottles = 40;
   var tiempoLessLife = 120;
   var aleatorio = Math.floor(Math.random() * 3);
@@ -226,18 +232,51 @@ function checkScore() {
 function stopGame() {
   clearInterval(interval);
   if (mezcal >= 27) {
-    canvas.fillText("YOU WON !", 400, 300);
-
+    canvas.font='150px Anton, sans-serif';
+    canvas.fillStyle= '#48BA95';
+   // canvas.drawImage("./images/Caballito3.png",425,200, 80,130);
+    canvas.fillText("YOU WON!", 200, 400);
   } else if (mezcal <= 0) {
-    canvas.fillText("BOTTLE EMPTY Sorry!", 400, 300);
+    canvas.font='150px Anton, sans-serif'
+    canvas.fillStyle= '#48BA95'
+    canvas.fillText("BOTTLE EMPTY Sorry!", 150, 400);
 
   }
   if (mezcal2 >= 27) {
-    canvas.fillText("YOU WON !", 400, 300);
-
+    canvas.font='150px Anton, sans-serif';
+    canvas.fillStyle= '#48BA95';
+   // canvas.drawImage("./images/Caballito2.png",425,200, 80,130);
+    canvas.fillText("YOU WON!", 200, 400);
   } else if (mezcal2 <= 0) {
-    canvas.fillText("BOTTLE EMPTY Sorry!", 400, 300);
-
+    canvas.font='150px Anton, sans-serif'
+    canvas.fillStyle= '#48BA95'
+    canvas.fillText("BOTTLE EMPTY Sorry!", 150, 400);
   }
-
 }
+
+
+
+function checkIfBounce(){
+  console.log("holq")
+    if(myGame.caballito1.checkCollisionCaba(myGame.caballito2)){
+      console.log("zzz")
+      playSoundBounce()
+      if (myGame.caballito1.posX>myGame.caballito2.posX){
+        myGame.caballito1.posX+=90;
+        myGame.caballito2.posX-=90;
+      } else{
+        myGame.caballito1.posX-=90;
+        myGame.caballito2.posX+=90;
+      } 
+    }
+    if(myGame.caballito1.checkCollisionCaba(myGame.caballito2)){
+      playSoundBounce()
+      if (myGame.caballito1.posY>myGame.caballito2.posY){
+        myGame.caballito1.posY+=90;
+        myGame.caballito2.posY-=90;
+      } else{
+        myGame.caballito1.posY-=90;
+        myGame.caballito2.posY+=90;
+      }
+  } 
+};
