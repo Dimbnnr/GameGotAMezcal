@@ -1,5 +1,5 @@
 
-function Caballito(canvas){
+function Caballito(canvas, imagen){
     this.posX = 100;
     this.posY = 300;
     this.speedX = 30;
@@ -9,7 +9,7 @@ function Caballito(canvas){
     this.speed;
     this.ctx = canvas;
     this.img = new Image();
-    this.img.src = images.caballito3Image;
+    this.img.src = imagen;
     this.img.onload = function(){
         this.draw();
     }.bind(this);
@@ -25,8 +25,6 @@ function Caballito(canvas){
 }
 
 
-
-//Funciones para los movimientos de la nave
 Caballito.prototype.moveUp = function(){
     if(this.posY > 0){
       this.posY -= this.speedY;
@@ -55,3 +53,5 @@ Caballito.prototype.moveUp = function(){
       return;
     }
   }
+
+  
