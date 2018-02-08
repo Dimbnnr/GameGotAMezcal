@@ -1,6 +1,6 @@
-function EmptyBottle(canvas) {
-    this.x = 1050;
-    this.y = 315;
+function EmptyBottle(canvas, x, y) {
+    this.x = x;
+    this.y = y;
     this.width = 105;
     this.height = 265;
     this.ctx = canvas;
@@ -11,8 +11,6 @@ function EmptyBottle(canvas) {
     }.bind(this);
     this.draw = function () {
         myGame.board.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
-
-
     }
     this.ctx.fillRect(1063, 565, 80, 5);
     this.ctx.fillStyle = "#D5EEFF";

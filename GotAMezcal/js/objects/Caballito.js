@@ -1,9 +1,10 @@
 
-function Caballito(canvas, imagen){
-    this.posX = 100;
-    this.posY = 300;
-    this.speedX = 30;
-    this.speedY = 30;
+function Caballito(canvas, X, Y, imagen){
+    this.posX = X;
+    this.posY = Y;
+    this.speedX = 45;
+    this.speedY = 45;
+    this.friction = .99;
     this.width = 40;
     this.height = 65;
     this.speed;
