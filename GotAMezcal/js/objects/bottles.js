@@ -24,7 +24,7 @@ function Bottle(height) {
     this.drawDrop = function () {
         if (!this.visible) return;
         //random num 
-        var rn = Math.floor(Math.random()*12);
+        var rn = Math.floor(Math.random()*16);
         this.dropY += rn;
         if (this.dropY > 600) this.dropY = this.height - 80;
         myGame.board.ctx.drawImage(this.dropImg, this.x + 25, this.dropY, 50, 50);

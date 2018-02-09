@@ -1,18 +1,18 @@
 var myGame;
 var canvas;
 var frames = 0;
-var mezcal = 24;
-var mezcal2 = 24;
+var mezcal = 14;
+var mezcal2 = 14;
 var players = 0;
 
 var music = new Audio();
-music.src = "./Music/cumbiaLess.mp3"
+music.src = "./Music/cumbiamore.mp3"
 var sound1 = new Audio();
 sound1.src = "./Music/waterDrop.mp3"
 var soundWin = new Audio();
 soundWin.src = "./Music/wooHOO.mp3"
 var soundBounce = new Audio();
-soundBounce.src = "./Music/WO.mp3"
+soundBounce.src = "./Music/marless.mp3"
 
 function playSoundBounce(){
   soundBounce.play();
@@ -236,7 +236,7 @@ function stopGame() {
     myGame.caballito1.drawWinner();
     canvas.font='150px Anton'
     canvas.fillStyle= '#48BA95';
-    canvas.fillText("YOU WON!", 200, 400);
+    canvas.fillText("WON!", 550, 400);
   } else if (mezcal <= 0) {
     canvas.font='150px Anton'
     canvas.fillStyle= '#48BA95'
@@ -247,7 +247,7 @@ function stopGame() {
     myGame.caballito2.drawWinner();   
     canvas.font='150px Anton'
     canvas.fillStyle= '#48BA95';
-    canvas.fillText("YOU WON!", 200, 400);
+    canvas.fillText("WON!", 550, 400);
   } else if (mezcal2 <= 0) {
     canvas.font='150px Anton'
     canvas.fillStyle= '#48BA95'
@@ -262,17 +262,22 @@ function checkIfBounce(){
     if(myGame.caballito1.checkCollisionCaba(myGame.caballito2)){
       console.log("zzz")
       playSoundBounce()
-      if (myGame.caballito1.posX>myGame.caballito2.posX){
-        myGame.caballito1.posX+=90;
-        myGame.caballito2.posX-=90;
-      } else{
+      if (myGame.caballito1.posX < myGame.caballito2.posX + myGame.caballito2.width){
         myGame.caballito1.posX-=90;
         myGame.caballito2.posX+=90;
+      }
+      if(myGame.caballito1.checkCollisionCaba(myGame.caballito2)){
+        console.log("zzz")
+        playSoundBounce()
+       if (myGame.caballito2.posX + myGame.caballito2.width < myGame.caballito1.posX){
+        myGame.caballito1.posX+=90;
+        myGame.caballito2.posX-=90;
       } 
     }
-    if(myGame.caballito1.checkCollisionCaba(myGame.caballito2)){
+    }
+   if(myGame.caballito1.checkCollisionCaba(myGame.caballito2)){
       playSoundBounce()
-      if (myGame.caballito1.posY>myGame.caballito2.posY){
+      if (myGame.caballito1.posY < myGame.caballito2.posY + myGame.caballito2.height){
         myGame.caballito1.posY+=90;
         myGame.caballito2.posY-=90;
       } else{
@@ -280,4 +285,5 @@ function checkIfBounce(){
         myGame.caballito2.posY+=90;
       }
   } 
+  
 };

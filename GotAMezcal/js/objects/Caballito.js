@@ -2,8 +2,8 @@
 function Caballito(canvas, X, Y, imagen){
     this.posX = X;
     this.posY = Y;
-    this.speedX = 45;
-    this.speedY = 45;
+    this.speedX = 55;
+    this.speedY = 55;
     this.friction = .99;
     this.width = 40;
     this.height = 65;
@@ -18,7 +18,7 @@ function Caballito(canvas, X, Y, imagen){
         this.ctx.drawImage(this.img, this.posX, this.posY, this.width, this.height);
     }
     this.drawWinner = function(){
-     this.ctx.drawImage(this.img,425,200, 80,130);
+     this.ctx.drawImage(this.img,400,250, 100,162);
       
     }
     this.checkCollision = function(bottle){
