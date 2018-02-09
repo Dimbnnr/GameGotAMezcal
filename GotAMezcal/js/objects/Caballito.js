@@ -17,6 +17,10 @@ function Caballito(canvas, X, Y, imagen){
     this.draw = function(){
         this.ctx.drawImage(this.img, this.posX, this.posY, this.width, this.height);
     }
+    this.drawWinner = function(){
+     this.ctx.drawImage(this.img,425,200, 80,130);
+      
+    }
     this.checkCollision = function(bottle){
         return (this.posX < bottle.x + 50) &&
                 (this.posX + this.width > bottle.x + 50) &&
@@ -30,6 +34,7 @@ function Caballito(canvas, X, Y, imagen){
               (this.posY + this.height > cab.posY)
     
     }
+    
 }
 
 

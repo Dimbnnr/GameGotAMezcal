@@ -1,8 +1,8 @@
 var myGame;
 var canvas;
 var frames = 0;
-var mezcal = 14;
-var mezcal2 = 14;
+var mezcal = 24;
+var mezcal2 = 24;
 var players = 0;
 
 var music = new Audio();
@@ -61,6 +61,7 @@ window.onload = function () {
     interval = setInterval(playersSelection(), 1000 / 60);
  
   }
+  
 }
 
 
@@ -75,7 +76,7 @@ function playersSelection(){
 
 function updateGame() {
   frames++;
-
+  
   //myGame.caballito1.speedX *= myGame.caballito1.friction;
   //myGame.caballito1.speedY *= myGame.caballito1.friction;
   myGame.board.ctx.clearRect(0, 0, 1200, 600)
@@ -232,23 +233,23 @@ function checkScore() {
 function stopGame() {
   clearInterval(interval);
   if (mezcal >= 27) {
-    canvas.font='150px Anton, sans-serif';
+    myGame.caballito1.drawWinner();
+    canvas.font='150px Anton'
     canvas.fillStyle= '#48BA95';
-   // canvas.drawImage("./images/Caballito3.png",425,200, 80,130);
     canvas.fillText("YOU WON!", 200, 400);
   } else if (mezcal <= 0) {
-    canvas.font='150px Anton, sans-serif'
+    canvas.font='150px Anton'
     canvas.fillStyle= '#48BA95'
     canvas.fillText("BOTTLE EMPTY Sorry!", 150, 400);
 
   }
   if (mezcal2 >= 27) {
-    canvas.font='150px Anton, sans-serif';
+    myGame.caballito2.drawWinner();   
+    canvas.font='150px Anton'
     canvas.fillStyle= '#48BA95';
-   // canvas.drawImage("./images/Caballito2.png",425,200, 80,130);
     canvas.fillText("YOU WON!", 200, 400);
   } else if (mezcal2 <= 0) {
-    canvas.font='150px Anton, sans-serif'
+    canvas.font='150px Anton'
     canvas.fillStyle= '#48BA95'
     canvas.fillText("BOTTLE EMPTY Sorry!", 150, 400);
   }
